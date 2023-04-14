@@ -1,15 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\page\genre;
+namespace App\Http\Controllers\auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Hash;
+use Session;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
-class GenreController extends Controller
+class LoginController extends Controller
 {
-
-    private $viewPath = "pages.genre.";
-
     /**
      * Display a listing of the resource.
      *
@@ -17,9 +18,7 @@ class GenreController extends Controller
      */
     public function index()
     {
-
-        return view($this->viewPath . 'index');
-
+        return view('auth.login');
     }
 
     /**
@@ -27,6 +26,35 @@ class GenreController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function loginProccess(Request $request) {
+        $request->validate([
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+
+        $dataLogin = $request->only('email', 'password');
+        if (Auth::attempt($dataLogin)) {
+            // return redirect()->intended('dashboard');
+            // return redirect()->intended(route('user.dashboard.index'));
+            // dd("Masuk");
+            return view('user.dashboard.index');
+        }
+
+        return redirect('login');
+        // dd("Mental");
+    }
+
+    public function dashboard()
+    {
+        if(Auth::check()){
+            return view('user.dashboard.index');
+        }
+
+        // return redirect("login")->withSuccess('You are not allowed to access');
+        return redirect('login');
+    }
+
     public function create()
     {
         //

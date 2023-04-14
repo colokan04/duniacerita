@@ -1,14 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\page\genre;
+namespace App\Http\Controllers\user\dashboard;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class GenreController extends Controller
+class DashboardController extends Controller
 {
 
-    private $viewPath = "pages.genre.";
+    private $routePath = "user.dashboard.";
+    private $viewPath = "user.dashboard.";
 
     /**
      * Display a listing of the resource.
@@ -17,9 +19,15 @@ class GenreController extends Controller
      */
     public function index()
     {
+        dd("MASOK DASHBOARD");
+        // return view($this->viewPath . 'index');
+        // return view('user.dashboard.index');
 
-        return view($this->viewPath . 'index');
+        // if(Auth::check()){
+        //     return view('user.dashboard.index');
+        // }
 
+        // return redirect("login")->withSuccess('You are not allowed to access');
     }
 
     /**

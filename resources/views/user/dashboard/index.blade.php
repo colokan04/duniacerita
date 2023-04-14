@@ -42,13 +42,13 @@
             <a href="#" class="logo d-flex align-items-center  me-auto me-lg-0">
                 <i class="bi bi-book" style="color:#000000"></i>
                 <h1 style="font-family: 'Brush Script MT', cursive; font-size: 40px; font-style: normal; font-variant: normal;
-                font-weight: 700; line-height: 26.4px;">Dunia Cerita</h1>
+                font-weight: 700; line-height: 26.4px;">Dunia Cerita CMS</h1>
             </a>
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a href="{{ route('home.index') }}" class="active">Home</a></li>
-                    <li class="dropdown"><a href="#"><span>Genre</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                    <li><a href="{{ route('home.index') }}" class="active">Homeeeeeee</a></li>
+                    {{-- <li class="dropdown"><a href="#"><span>Genre</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                         <ul>
                             <li><a href="#">Adventure</a></li>
                             <li><a href="#">Eastern</a></li>
@@ -61,17 +61,17 @@
                             <li><a href="#">Romance</a></li>
                             <li><a href="#">Sport</a></li>
                             <li><a href="#">Urban</a></li>
-                            {{-- <li class="dropdown"><a href="#"><span>Sub Menu</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                            <li class="dropdown"><a href="#"><span>Sub Menu</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                                 <ul>
                                     <li><a href="#">Sub Menu 1</a></li>
                                     <li><a href="#">Sub Menu 2</a></li>
                                     <li><a href="#">Sub Menu 3</a></li>
                                 </ul>
-                            </li> --}}
+                            </li>
                         </ul>
                     </li>
-                    {{-- <li><a href="{{ route('service.index') }}">Services</a></li> --}}
-                    <li><a href="{{ route('contact.index') }}">Contact</a></li>
+                    <li><a href="{{ route('service.index') }}">Services</a></li>
+                    <li><a href="{{ route('contact.index') }}">Contact</a></li> --}}
                 </ul>
             </nav>
 
@@ -91,7 +91,8 @@
     <!-- End Header -->
 
     <!-- #main -->
-    @yield('content')
+    {{-- @yield('content') --}}
+    TEST
     <!-- End Main -->
 
     <!-- ======= Footer ======= -->
@@ -108,9 +109,9 @@
         <i class="bi bi-arrow-up-short"></i>
     </a>
 
-    <div id="preloader">
+    {{-- <div id="preloader">
       <div class="line"></div>
-    </div>
+    </div> --}}
 
     <!-- Vendor JS Files -->
     <script src="{{ asset('duniacerita/vendor/swiper/swiper-bundle.min.js') }}"></script>
