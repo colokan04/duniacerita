@@ -1,15 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\auth;
+namespace App\Http\Controllers\user\home;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Hash;
-use Session;
-use App\Models\User;
-use Illuminate\Support\Facades\Auth;
 
-class LoginController extends Controller
+class HomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +14,7 @@ class LoginController extends Controller
      */
     public function index()
     {
-        return view('auth.login');
+        return view('user.home.index');
     }
 
     /**
@@ -26,35 +22,6 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
-    public function loginProccess(Request $request) {
-        $request->validate([
-            'email' => 'required',
-            'password' => 'required',
-        ]);
-
-        $dataLogin = $request->only('email', 'password');
-        if (Auth::attempt($dataLogin)) {
-            // return redirect()->intended('dashboard');
-            // return redirect()->intended(route('user.dashboard.index'));
-            // dd("Masuk");
-            return view('user.dashboard.index');
-        }
-
-        return redirect('login');
-        // dd("Mental");
-    }
-
-    public function dashboard()
-    {
-        if(Auth::check()){
-            return view('user.dashboard.index');
-        }
-
-        // return redirect("login")->withSuccess('You are not allowed to access');
-        return redirect('login');
-    }
-
     public function create()
     {
         //

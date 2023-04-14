@@ -60,44 +60,55 @@
     <!-- End Header -->
 
     <!-- #main -->
-    <main id="main" data-aos="fade" data-aos-delay="1500">
+    <main id="main" data-aos="fade" data-aos-delay="10">
 
         <!-- ======= End Page Header ======= -->
         <div class="page-header d-flex align-items-center">
             <div class="container position-relative">
-                <div class="row d-flex justify-content-center">
+                <div class="row d-flex justify-content-center" style="justify-content: left!important;">
                     <div class="col-lg-5 text-center">
 
                         <div class="row justify-content-right" style="margin-top: 40px">
                             <div class="col-xl-12 col-lg-12">
 
-                                <form method="POST" action="{{ route('login.proccess') }}">
+                                <form method="POST" action="{{ route('login.custom') }}">
 
                                     @csrf
                                     <div class="row mb-2">
                                         <div class="col-md-12" style="text-align: left;">
-                                            <label for="email" class="col-md-3 col-form-label">{{ __('Nama User') }}</label>
+                                            {{-- <label for="email" class="col-md-3 col-form-label">{{ __('Nama User') }}</label>
                                             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
                                                 name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                                                 @error('email')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
-                                            @enderror
+                                            @enderror --}}
+
+                                            <label for="email" class="col-md-3 col-form-label">{{ __('Nama User') }}</label>
+                                            <input type="text" placeholder="Email" id="email" class="form-control" name="email" required
+                                                autofocus>
+                                            @if ($errors->has('email'))
+                                            <span class="text-danger">{{ $errors->first('email') }}</span>
+                                            @endif
                                         </div>
                                     </div>
 
                                     <div class="row mb-2">
                                         <div class="col-md-12" style="text-align: left;">
                                             <label for="email" class="col-md-3 col-form-label">{{ __('Kata Sandi') }}</label>
-                                            <input id="password" type="password"
+                                            <input type="password" placeholder="Password" id="password" class="form-control" name="password" required>
+                                            @if ($errors->has('password'))
+                                            <span class="text-danger">{{ $errors->first('password') }}</span>
+                                            @endif
+                                            {{-- <input id="password" type="password"
                                                 class="form-control @error('password') is-invalid @enderror" name="password"
                                                 required autocomplete="current-password">
                                                 @error('password')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
-                                            @enderror
+                                            @enderror --}}
                                         </div>
                                     </div>
 

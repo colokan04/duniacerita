@@ -21,11 +21,20 @@ Route::resource('service', App\Http\Controllers\page\service\ServiceController::
 Route::resource('contact', App\Http\Controllers\page\contact\ContactController::class);
 Route::resource('slider', App\Http\Controllers\SliderController::class);
 
-Route::get('login', [App\Http\Controllers\auth\LoginController::class,'index'])->name('login');
-Route::post('login', [App\Http\Controllers\auth\LoginController::class,'loginProccess'])->name('login.proccess');
+Route::get('dashboard', [App\Http\Controllers\CustomAuthController::class, 'dashboard']);
+Route::get('login', [App\Http\Controllers\CustomAuthController::class, 'index'])->name('login');
+Route::post('custom-login', [App\Http\Controllers\CustomAuthController::class, 'customLogin'])->name('login.custom');
+Route::get('registration', [App\Http\Controllers\CustomAuthController::class, 'registration'])->name('register-user');
+Route::post('custom-registration', [App\Http\Controllers\CustomAuthController::class, 'customRegistration'])->name('register.custom');
+Route::get('signout', [App\Http\Controllers\CustomAuthController::class, 'signOut'])->name('signout');
 
-Route::middleware(['auth'])->group(function () {
+// Route::get('login', [App\Http\Controllers\auth\LoginController::class,'index'])->name('login');
+// Route::post('login', [App\Http\Controllers\auth\LoginController::class,'loginProccess'])->name('login.proccess');
+// Route::get('signout', [App\Http\Controllers\auth\LoginController::class,'signout'])->name('signout');
 
-    Route::get('dashboard', [App\Http\Controllers\auth\LoginController::class,'dashboard'])->name('dashboard');
+// Route::middleware(['auth'])->group(function () {
 
-});
+//     Route::get('dashboard', [App\Http\Controllers\auth\LoginController::class,'dashboard'])->name('dashboard');
+//     Route::resource('home', App\Http\Controllers\user\home\HomeController::class);
+
+// });
